@@ -1,0 +1,143 @@
+$h: 6em;
+$space: unquote(' ');
+$comma: unquote(',');
+$common-ratios: 2 1, 5 3;
+$n-ratios: length($common-ratios);
+
+@for $i from 0 to $n-ratios {
+	$curr-ratio: nth($common-ratios, $i + 1);
+	$a: nth($curr-ratio, 1);
+	$b: nth($curr-ratio, 2);
+
+	%ratio-#{$a}-#{$b} {
+		/* flags with an aspect ratio of #{$a}:#{$b} */
+		--ratio: calc(#{$a}/#{$b})
+	}
+}
+
+%vertical { /* flags with vertical stripes */
+	--dir: 90deg $comma;
+}
+
+@for $n from 2 to 6 {
+	%stripes-#{$n} { /* flags with #{$n} stripes */
+		@if $n%2 == 0 { --s#{.5*$n - 1}: 50% }
+
+		@if $n < 3 { --l1: $space }
+
+		@if $n > 3 {
+			@for $i from 3 to $n {
+				$j: $i - 1;
+				--l#{$j}: $comma
+					var(--c#{$j}) var(--s#{$j}),
+					var(--c#{$i}) 0
+			}
+		}
+	}
+}
+
+.main {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	background: silver
+}
+
+.flag {
+	margin: .5em .375em;
+	--ratio: calc(3/2);
+	width: calc(var(--ratio)*#{$h}); height: $h;
+	--c0: #ce1126;
+	--s0: calc(100%/3);
+	--c1: #fff;
+	--s1: calc(100% - var(--s0));
+	--c2: var(--c0);
+	--s2: calc(100% - var(--s1));
+	--c3: var(--c1);
+	--s3: calc(100% - var(--s0));
+	--c4: var(--c0);
+	background:
+		linear-gradient(var(--dir, $space)
+			var(--c0) var(--s0), var(--c1) 0
+			var(--l1, $comma var(--c1) var(--s1), var(--c2) 0)
+			var(--l2, $space) var(--l3, $space))
+}
+
+#armenia {
+  --ratio: 2/1;
+  --c0: #d90012;
+  --c1: #0033a0;
+  --c2: #f2a800;
+}
+#austria {
+   --c0: #ed2939
+}
+#belgium {
+  --ratio: 15/13;
+  @extend %vertical;
+  --c0: #000;
+  --c1: #ffe936;
+  --c2: #ff0f21;
+}
+#botswana {
+  --ratio: 3/2;
+  --c0: #75AADB;
+  --s0: 37.5%;
+	--s1: calc(50%*(1 - 1/6));
+  --c2: black;
+  @extend %stripes-5;
+}
+#bulgaria {
+	@extend %ratio-5-3;
+	--c0: #fff;
+	--c1: #00966e;
+	--c2: #d62612;
+}
+#chad {
+  @extend %vertical;
+  --c0: #002664;
+  --c1: #fecb00;
+  --c2: #c60c30;
+}
+#colombia {
+  --c0: #FCD116;
+  --s0: 50%;
+  --c1: #003893;
+  --s1: 75%;
+  --c2: #ce1126;
+}
+#congo {
+  --dir: 135deg $comma;
+  --c0: #009543;
+  --s0: 40%;
+  --c1: #fbde4a;
+  --c2: #dc241f;
+}
+#costa-rica {
+  --ratio: 5/3;
+  @extend %stripes-5;
+  --c0: #002b7f;
+  --s0: calc(100%/6);
+  --c1: #fff;
+  --s1: calc(100%/3);
+  --c2: #ce1126;
+}
+#indonesia {
+  --c0: #f00;
+	@extend %stripes-2;
+}
+#mauritius {
+  --c0: #ea2839;
+	--s0: 25%;
+	--c1: #1a206d;
+	--c2: #ffd500;
+	--s2: calc(100% - var(--s0));
+	--c3: #00a551;
+	@extend %stripes-4;
+}
+#poland {
+  --ratio: 8/5;
+  --c0: #fff;
+  --c1: #D4213D;
+  @extend %stripes-2;
+}
