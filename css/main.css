@@ -1,8 +1,4 @@
-#bulgaria {
-  /* flags with an aspect ratio of 5:3 */
-  --ratio: calc(5/3); }
-
-#belgium, #chad {
+#belgium, #chad, #france, #guinea, #ireland {
   /* flags with vertical stripes */
   --dir: 90deg ,; }
 
@@ -16,7 +12,7 @@
   --s1: 50%;
   --l2: , var(--c2) var(--s2), var(--c3) 0; }
 
-#botswana, #costa-rica {
+#botswana, #costa-rica, #gambia {
   /* flags with 5 stripes */
   --l2: , var(--c2) var(--s2), var(--c3) 0;
   --l3: , var(--c3) var(--s3), var(--c4) 0; }
@@ -24,14 +20,14 @@
 .main {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-  background: silver; }
+  justify-content: space-around; }
 
 .flag {
   margin: .5em .375em;
   --ratio: calc(3/2);
   width: calc(var(--ratio)*6em);
   height: 6em;
+  box-shadow: 2px 2px 2px;
   --c0: #ce1126;
   --s0: calc(100%/3);
   --c1: #fff;
@@ -66,6 +62,7 @@
   --c2: black; }
 
 #bulgaria {
+  --ratio: 5/3;
   --c0: #fff;
   --c1: #00966e;
   --c2: #d62612; }
@@ -97,8 +94,51 @@
   --s1: calc(100%/3);
   --c2: #ce1126; }
 
+#estonia {
+  --ratio: 11/7;
+  --c0: #4891d9;
+  --c1: black;
+  --c2: #fff; }
+
+#france {
+  --c0: #002395;
+  --c2: #ed2939; }
+
+#gabon {
+  --ratio: 4/3;
+  --c0: #009e60;
+  --c1: #fcd116;
+  --c2: #3a75c4; }
+
+#gambia {
+  /* 6 1 4 1 6 */
+  --c0: #ce1126;
+  --s1: calc(100%*7/18);
+  --c2: #0c1c8c;
+  --c3: #ffffff;
+  --c4: #3a7728; }
+
+#germany {
+  --ratio: 5/3;
+  --c0: black;
+  --c1: #dd0000;
+  --c2: #ffce00; }
+
+#guinea {
+  --c1: #fcd116;
+  --c2: #009460; }
+
+#hungary {
+  --c0: #CD2A3E;
+  --c2: #436f4d; }
+
 #indonesia {
   --c0: #f00; }
+
+#ireland {
+  --ratio: 2/1;
+  --c0: #169b62;
+  --c2: #ff883e; }
 
 #mauritius {
   --c0: #ea2839;

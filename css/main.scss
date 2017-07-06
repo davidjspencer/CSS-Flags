@@ -4,17 +4,6 @@ $comma: unquote(',');
 $common-ratios: 2 1, 5 3;
 $n-ratios: length($common-ratios);
 
-@for $i from 0 to $n-ratios {
-	$curr-ratio: nth($common-ratios, $i + 1);
-	$a: nth($curr-ratio, 1);
-	$b: nth($curr-ratio, 2);
-
-	%ratio-#{$a}-#{$b} {
-		/* flags with an aspect ratio of #{$a}:#{$b} */
-		--ratio: calc(#{$a}/#{$b})
-	}
-}
-
 %vertical { /* flags with vertical stripes */
 	--dir: 90deg $comma;
 }
@@ -40,13 +29,14 @@ $n-ratios: length($common-ratios);
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-around;
-	background: silver
 }
 
 .flag {
 	margin: .5em .375em;
 	--ratio: calc(3/2);
-	width: calc(var(--ratio)*#{$h}); height: $h;
+	width: calc(var(--ratio)*#{$h});
+  height: $h;
+  box-shadow: 2px 2px 2px;
 	--c0: #ce1126;
 	--s0: calc(100%/3);
 	--c1: #fff;
@@ -88,7 +78,7 @@ $n-ratios: length($common-ratios);
   @extend %stripes-5;
 }
 #bulgaria {
-	@extend %ratio-5-3;
+	--ratio: 5/3;
 	--c0: #fff;
 	--c1: #00966e;
 	--c2: #d62612;
@@ -122,9 +112,55 @@ $n-ratios: length($common-ratios);
   --s1: calc(100%/3);
   --c2: #ce1126;
 }
+#estonia {
+  --ratio: 11/7;
+  --c0: #4891d9;
+  --c1: black;
+  --c2: #fff;
+}
+#france {
+  @extend %vertical;
+  --c0: #002395;
+  --c2: #ed2939;
+}
+#gabon {
+  --ratio: 4/3;
+  --c0: #009e60;
+  --c1: #fcd116;
+  --c2: #3a75c4;
+}
+#gambia { /* 6 1 4 1 6 */
+  @extend %stripes-5;
+  --c0: #ce1126;
+  --s1: calc(100%*7/18);
+  --c2: #0c1c8c;
+  --c3: #ffffff;
+  --c4: #3a7728;
+}
+#germany {
+  --ratio: 5/3;
+  --c0: black;
+  --c1: #dd0000;
+  --c2: #ffce00;
+}
+#guinea {
+  @extend %vertical;
+  --c1: #fcd116;
+  --c2: #009460;
+}
+#hungary {
+  --c0: #CD2A3E;
+  --c2: #436f4d;
+}
 #indonesia {
   --c0: #f00;
 	@extend %stripes-2;
+}
+#ireland {
+  --ratio: 2/1;
+  @extend %vertical;
+  --c0: #169b62;
+  --c2: #ff883e;
 }
 #mauritius {
   --c0: #ea2839;
