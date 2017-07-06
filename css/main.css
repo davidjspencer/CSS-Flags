@@ -1,4 +1,5 @@
-#belgium, #chad, #france, #guinea, #ireland {
+@charset "UTF-8";
+#belgium, #chad, #france, #guinea, #ireland, #italy, #ivory-coast {
   /* flags with vertical stripes */
   --dir: 90deg ,; }
 
@@ -139,6 +140,18 @@
   --ratio: 2/1;
   --c0: #169b62;
   --c2: #ff883e; }
+
+#italy {
+  --c0: #009246;
+  --c2: #ce2b37; }
+
+#ivory-coast {
+  --c0: #ff883e;
+  --c2: #009E60; }
+
+#latvia  {
+  --c0: #9E3039;
+  --s0: 40%; }
 
 #mauritius {
   --c0: #ea2839;

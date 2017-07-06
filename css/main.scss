@@ -162,6 +162,20 @@ $n-ratios: length($common-ratios);
   --c0: #169b62;
   --c2: #ff883e;
 }
+#italy {
+  @extend %vertical;
+  --c0: #009246;
+  --c2: #ce2b37;
+}
+#ivory-coast {
+  @extend %vertical;
+  --c0: #ff883e;
+  --c2: #009E60;
+}
+#latvia {
+  --c0: #9E3039;
+  --s0: 40%;
+}
 #mauritius {
   --c0: #ea2839;
 	--s0: 25%;
